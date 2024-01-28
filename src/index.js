@@ -1,11 +1,19 @@
 // require("dotenv").config({ path: "./.env" });
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import connectDB  from "./db/dbConnect.js";
 import { app } from "./app.js";
 
-dotenv.config({
-    path: './.env'
-})
+/** IF NOT using below script
+ * "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+ * as "dev" script in "package.json" file,
+ * NOTE:- "-r dotenv/config --experimental-json-modules" loads .env file
+ * contents when first server starts
+ * ***************************************
+ * USE 👇🏻 this config :-
+ */
+// dotenv.config({
+//     path: './.env'
+// })
 
 connectDB()
 .then(() => {

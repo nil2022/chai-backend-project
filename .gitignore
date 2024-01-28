@@ -1,3 +1,6 @@
+# temp files for upload to Cloudinary
+public/temp/*.*
+
 # Logs
 logs
 *.log
