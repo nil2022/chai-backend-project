@@ -67,7 +67,7 @@ const registerUser = asyncHandler( async (req, res) => {
     let coverImageLocalPath;
     if (req.files && Array.isArray(req.files.coverImage) && 
     req.files.coverImage.length > 0) {
-        coverImageLocalPath = req.files.coverImage[0].path
+        coverImageLocalPath = req.files.coverImage[0].destination+'/'+req.files.coverImage[0].originalname
     }
 
     if(!avatarLocalPath) {
@@ -239,7 +239,7 @@ const refreshAccessToken = asyncHandler( async (req, res) => {
             secure: true
         }
     
-        const { accessToken, newRefreshToken } = await generateAccessAndRefreshToken(user._id)
+        const { accessToken, refreshToken: newRefreshToken } = await generateAccessAndRefreshToken(user._id)
     
         return res
         .status(200)
